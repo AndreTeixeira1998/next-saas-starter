@@ -3,6 +3,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import BasicSection from 'components/BasicSection';
 import { EnvVars } from 'env';
+import useMySwipeHandlers from 'hooks/useMySwipeHandlers';
 import { getAllPosts } from 'utils/postsFetcher';
 import Cta from 'views/HomePage/Cta';
 // import Features from 'views/HomePage/Features';
@@ -11,10 +12,8 @@ import Cta from 'views/HomePage/Cta';
 // import Partners from 'views/HomePage/Partners';
 // import ScrollableBlogPosts from 'views/HomePage/ScrollableBlogPosts';
 // import Testimonials from 'views/HomePage/Testimonials';
-import useMySwipeHandlers from 'hooks/useMySwipeHandlers';
 
-
-const Homepage = (props) => {
+const Homepage = () => {
   return (
     <>
       <Head>
@@ -25,45 +24,41 @@ const Homepage = (props) => {
         />
       </Head>
 
-
-
-      {/*<ScrollLink to="section2" smooth={true} offset={-57}>*/}
-        <div id="section1" {...useMySwipeHandlers("section2", "", true)}>
-          <BasicSection imageUrl="/demo-illustration-1.svg" title="Lorem ipsum dolor sit amet consectetur." overTitle="sit amet gogo">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, quidem error incidunt a doloremque voluptatem porro inventore
-              voluptate quo deleniti animi laboriosam.
-            </p>
-          </BasicSection>
-        </div>
+      <div id="section1" {...useMySwipeHandlers('section2', '', true)}>
+        <BasicSection imageUrl="/demo-illustration-1.svg" title="Lorem ipsum dolor sit amet consectetur." overTitle="sit amet gogo">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, quidem error incidunt a doloremque voluptatem porro inventore
+            voluptate quo deleniti animi laboriosam.
+          </p>
+        </BasicSection>
+      </div>
       {/*</ScrollLink>*/}
 
-        <div id="section2" {...useMySwipeHandlers("section3", "section1", true)}>
-          <Cta />
-        </div>
+      <div id="section2" {...useMySwipeHandlers('section3', 'section1', true)}>
+        <Cta />
+      </div>
 
-        <div id="section3" {...useMySwipeHandlers("section4", "section2", true)}>
-          <BasicSection imageUrl="/demo-illustration-1.svg" title="Lorem ipsum dolor sit amet consectetur." overTitle="sit amet gogo">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, quidem error incidunt a doloremque voluptatem porro inventore
-              voluptate quo deleniti animi laboriosam.
-            </p>
-          </BasicSection>
-        </div>
+      <div id="section3" {...useMySwipeHandlers('section4', 'section2', true)}>
+        <BasicSection imageUrl="/demo-illustration-1.svg" title="Lorem ipsum dolor sit amet consectetur." overTitle="sit amet gogo">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, quidem error incidunt a doloremque voluptatem porro inventore
+            voluptate quo deleniti animi laboriosam.
+          </p>
+        </BasicSection>
+      </div>
 
-        <div id="section4" {...useMySwipeHandlers("section5", "section3", true)}>
-          <Cta />
-        </div>
+      <div id="section4" {...useMySwipeHandlers('section5', 'section3', true)}>
+        <Cta />
+      </div>
 
-        <div id="section5" {...useMySwipeHandlers("", "section4", false)}>
-          <BasicSection imageUrl="/demo-illustration-1.svg" title="Lorem ipsum dolor sit amet consectetur." overTitle="sit amet gogo">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, quidem error incidunt a doloremque voluptatem porro inventore
-              voluptate quo deleniti animi laboriosam.
-            </p>
-          </BasicSection>
-        </div>
-
+      <div id="section5" {...useMySwipeHandlers('', 'section4', false)}>
+        <BasicSection imageUrl="/demo-illustration-1.svg" title="Lorem ipsum dolor sit amet consectetur." overTitle="sit amet gogo">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, quidem error incidunt a doloremque voluptatem porro inventore
+            voluptate quo deleniti animi laboriosam.
+          </p>
+        </BasicSection>
+      </div>
     </>
   );
 };
